@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beranda | LaporPak</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/icon-laporpak.png" type="image/x-icon" />
+
+    <style>
+      :root {
+        --bs-primary: #33a1e0;
+        --nav-h: 64px;
+      }
+
+      .btn-primary {
+        --bs-btn-bg: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-bg: #2b88bc;
+        --bs-btn-hover-border-color: #2b88bc;
+      }
+
+      .btn-outline-primary {
+        --bs-btn-color: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-bg: var(--bs-primary);
+        --bs-btn-hover-border-color: var(--bs-primary);
+      }
+
+      .text-primary {
+        color: var(--bs-primary) !important;
+      }
+
+      .bg-primary {
+        background-color: var(--bs-primary) !important;
+      }
+
+      [id] {
+        scroll-margin-top: var(--nav-h);
+      }
+      body {
+        background-color: #f5f7fb;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-illustration {
+        max-height: 320px;
+        width: auto;
+      }
+      @media (min-width: 1200px) {
+        .hero-illustration {
+          max-height: 420px;
+        }
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .shadow-soft {
+        box-shadow: 0 10px 26px rgba(2, 8, 23, 0.08);
+      }
+
+      /* Kartu laporan */
+      .card-hover:hover {
+        box-shadow: 0 12px 24px rgba(2, 8, 23, 0.08);
+        transition: 0.2s ease;
+      }
+      .status-badge {
+        font-weight: 600;
+      }
+
+      /* potong teks jadi 2 baris */
+      .text-truncate-2 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+      }
+
+      #faq .accordion-button {
+        background: #fff;
+        color: #212529;
+      }
+      #faq .accordion-button:not(.collapsed) {
+        background: var(--bs-primary);
+        color: #fff;
+        box-shadow: none;
+      }
+      #faq .accordion-button::after {
+        filter: none;
+      }
+      #faq .accordion-button:not(.collapsed)::after {
+        filter: brightness(0) invert(1);
+      }
+      #faq .accordion-body {
+        background: #fff;
+      }
+
+      .cta-card {
+        border-radius: 28px;
+        padding: 3rem 1.25rem;
+        box-shadow: 0 18px 45px rgba(2, 8, 23, 0.15);
+      }
+      @media (min-width: 992px) {
+        .cta-card {
+          padding: 4rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom sticky-top shadow-sm"
+    >
+      <div class="container">
+        <a class="d-flex align-items-center py-2" href="index.html">
+          <img src="assets/Logo-laporpak.png" alt="Logo LaporPak" width="120" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarPrimary"
+          aria-controls="navbarPrimary"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarPrimary">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#home">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="index.html#how-it-works"
+                data-hash="#how-it-works"
+                >Cara Kerja</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="index.html#latest-reports"
+                data-hash="#latest-reports"
+                >Daftar Laporan</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#faq" data-hash="#faq">FAQ</a>
+            </li>
+          </ul>
+
+          <div class="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
+            <a class="btn btn-primary btn-sm" href="#">Daftar Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero py-4 py-md-5">
+      <div class="container">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-6 col-xl-7 text-center text-xl-start">
+            <h1 class="h2 h1-md fw-bold mb-2 mt-0 text-dark">
+              Laporkan Masalah
+              <span class="text-primary">Infrastruktur & Kebersihan</span>
+              dengan Mudah
+            </h1>
+            <p class="lead mb-3 text-muted" style="max-width: 720px">
+              Platform digital yang menghubungkan warga dengan pemerintah daerah
+              untuk melaporkan kerusakan jalan, jembatan, dan masalah
+              kebersihan. Bersama membangun lingkungan yang lebih baik.
+            </p>
+
+            <div
+              class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-xl-start"
+            >
+              <a
+                class="btn btn-primary btn-lg px-4"
+                href="#"
+                id="btn-melaporkan"
+                >Mulai Melaporkan</a
+              >
+            </div>
+
+            <div
+              class="d-flex flex-wrap align-items-center gap-4 mt-3 justify-content-center justify-content-xl-start text-muted"
+            >
+              <span class="d-inline-flex align-items-center gap-2"
+                ><i class="bi bi-check-circle-fill text-success"></i>Terpercaya
+                Pemerintah</span
+              >
+              <span class="d-inline-flex align-items-center gap-2"
+                ><i class="bi bi-shield-fill-check text-success"></i>Data Aman &
+                Privasi Terjaga</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="col-lg-6 col-xl-5 d-none d-lg-flex flex-column align-items-center"
+          >
+            <img
+              src="assets/hero-illustration.svg"
+              alt="Hero Illustration"
+              class="img-fluid hero-illustration"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-3 py-md-4">
+      <div class="container">
+        <div class="card shadow-lg" style="margin-top: -20px; z-index: 10">
+          <div class="card-body p-4">
+            <div class="row text-center">
+              <div class="col-md-4 mb-3">
+                <div class="stat-value fw-bold text-primary">2,847</div>
+                <div class="text-secondary">Jumlah Laporan Sekarang</div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="stat-value fw-bold text-primary">1,432</div>
+                <div class="text-secondary">Laporan Selesai</div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-value fw-bold text-primary">120</div>
+                <div class="text-secondary">Warga Aktif</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="py-5">
+      <div class="container">
+        <div class="text-center mb-4 mb-md-5">
+          <h1 class="fw-semibold mb-2">Cara Kerja</h1>
+          <p class="text-secondary mb-0">
+            Empat langkah mudah untuk melaporkan masalah di lingkungan Anda
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="text-center h-100 p-4 bg-white rounded-4 shadow-soft">
+              <div
+                class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                style="width: 64px; height: 64px; font-weight: 700"
+              >
+                1
+              </div>
+              <h5>Daftar/Login</h5>
+              <p class="text-secondary mb-0">
+                Buat akun atau masuk ke platform LaporPak.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="text-center h-100 p-4 bg-white rounded-4 shadow-soft">
+              <div
+                class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                style="width: 64px; height: 64px; font-weight: 700"
+              >
+                2
+              </div>
+              <h5>Buat Laporan</h5>
+              <p class="text-secondary mb-0">
+                Isi form laporan dengan foto dan lokasi akurat.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="text-center h-100 p-4 bg-white rounded-4 shadow-soft">
+              <div
+                class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                style="width: 64px; height: 64px; font-weight: 700"
+              >
+                3
+              </div>
+              <h5>Verifikasi</h5>
+              <p class="text-secondary mb-0">
+                Tim akan memeriksa dan memvalidasi laporan Anda.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="text-center h-100 p-4 bg-white rounded-4 shadow-soft">
+              <div
+                class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                style="width: 64px; height: 64px; font-weight: 700"
+              >
+                4
+              </div>
+              <h5>Selesai & Poin</h5>
+              <p class="text-secondary mb-0">
+                Dapatkan poin saat valid dan pantau progres.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="latest-reports" class="py-5">
+      <div class="container">
+        <div class="text-center mb-4 mb-md-5">
+          <h1 class="fw-semibold mb-2">Daftar Laporan</h1>
+          <p class="text-secondary mb-0">
+            Pantau semua laporan masalah infrastruktur dan kebersihan dari warga
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 card-hover">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-2"
+                >
+                  <div>
+                    <h3 class="h6 mb-0">Aspal Retak dan Bergelombang</h3>
+                    <small class="text-secondary">LP-20251015-0004</small>
+                  </div>
+                  <span
+                    class="badge rounded-pill bg-success-subtle text-success-emphasis status-badge"
+                    >Selesai</span
+                  >
+                </div>
+                <p class="text-secondary text-truncate-2 mb-3">
+                  Kondisi aspal di Jalan Mawar sudah banyak yang retak dan tidak
+                  rata. Sangat tidak nyaman dan berbahaya bagi pengendara motor.
+                </p>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-2"
+                >
+                  <i class="bi bi-geo-alt me-2"></i> Jl. Mawar Blok C, Kel.
+                  Bahagia
+                </div>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-3"
+                >
+                  <i class="bi bi-calendar-event me-2"></i> 15 Okt 2025
+                </div>
+                <a
+                  href="#"
+                  class="btn btn-outline-primary w-100 btn-lihat-detail"
+                >
+                  <i class="bi bi-eye me-1"></i> Lihat Detail
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 card-hover">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-2"
+                >
+                  <div>
+                    <h3 class="h6 mb-0">Saluran Air Penuh Sampah</h3>
+                    <small class="text-secondary">LP-20251014-0005</small>
+                  </div>
+                  <span
+                    class="badge rounded-pill bg-warning-subtle text-warning-emphasis status-badge"
+                    >Dikerjakan</span
+                  >
+                </div>
+                <p class="text-secondary text-truncate-2 mb-3">
+                  Got di depan gang kami tersumbat total oleh sampah plastik.
+                  Setiap kali hujan deras, air meluap hingga ke jalan utama dan
+                  masuk ke rumah warga.
+                </p>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-2"
+                >
+                  <i class="bi bi-geo-alt me-2"></i> Gang Melati 3, Cengkareng
+                </div>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-3"
+                >
+                  <i class="bi bi-calendar-event me-2"></i> 14 Okt 2025
+                </div>
+                <a
+                  href="#"
+                  class="btn btn-outline-primary w-100 btn-lihat-detail"
+                >
+                  <i class="bi bi-eye me-1"></i> Lihat Detail
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 card-hover">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-2"
+                >
+                  <div>
+                    <h3 class="h6 mb-0">Ayunan Anak di Taman Patah</h3>
+                    <small class="text-secondary">LP-20251012-0006</small>
+                  </div>
+                  <span
+                    class="badge rounded-pill bg-info-subtle text-info-emphasis status-badge"
+                    >Terverifikasi</span
+                  >
+                </div>
+                <p class="text-secondary text-truncate-2 mb-3">
+                  Salah satu ayunan di Taman Ceria patah pada bagian rantainya.
+                  Mohon segera diperbaiki karena sering digunakan anak-anak dan
+                  bisa membahayakan.
+                </p>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-2"
+                >
+                  <i class="bi bi-geo-alt me-2"></i> Taman Ceria, Jakarta Timur
+                </div>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-3"
+                >
+                  <i class="bi bi-calendar-event me-2"></i> 12 Okt 2025
+                </div>
+                <a
+                  href="#"
+                  class="btn btn-outline-primary w-100 btn-lihat-detail"
+                >
+                  <i class="bi bi-eye me-1"></i> Lihat Detail
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 card-hover">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-2"
+                >
+                  <div>
+                    <h3 class="h6 mb-0">Pohon Rindang Menghalangi Jalan</h3>
+                    <small class="text-secondary">LP-20251011-0007</small>
+                  </div>
+                  <span
+                    class="badge rounded-pill bg-success-subtle text-success-emphasis status-badge"
+                    >Selesai</span
+                  >
+                </div>
+                <p class="text-secondary text-truncate-2 mb-3">
+                  Ada pohon besar yang dahannya sudah sangat rendah hingga
+                  menutupi sebagian jalan dan trotoar. Perlu segera dipangkas
+                  sebelum ada korban.
+                </p>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-2"
+                >
+                  <i class="bi bi-geo-alt me-2"></i> Jl. Anggrek Raya No. 12
+                </div>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-3"
+                >
+                  <i class="bi bi-calendar-event me-2"></i> 11 Okt 2025
+                </div>
+                <a
+                  href="#"
+                  class="btn btn-outline-primary w-100 btn-lihat-detail"
+                >
+                  <i class="bi bi-eye me-1"></i> Lihat Detail
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 card-hover">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-2"
+                >
+                  <div>
+                    <h3 class="h6 mb-0">Coretan di Dinding Halte Bus</h3>
+                    <small class="text-secondary">LP-20251010-0008</small>
+                  </div>
+                  <span
+                    class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis status-badge"
+                    >Menunggu Verifikasi</span
+                  >
+                </div>
+                <p class="text-secondary text-truncate-2 mb-3">
+                  Dinding halte bus TransJakarta Dukuh Atas penuh dengan coretan
+                  cat semprot (vandalisme) yang merusak pemandangan dan
+                  fasilitas umum.
+                </p>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-2"
+                >
+                  <i class="bi bi-geo-alt me-2"></i> Halte Dukuh Atas 2
+                </div>
+                <div
+                  class="d-flex align-items-center text-secondary small mb-3"
+                >
+                  <i class="bi bi-calendar-event me-2"></i> 10 Okt 2025
+                </div>
+                <a
+                  href="#"
+                  class="btn btn-outline-primary w-100 btn-lihat-detail"
+                >
+                  <i class="bi bi-eye me-1"></i> Lihat Detail
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-outline-primary px-4" id="btn-lihat-semua"
+            >Lihat Semua</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-5">
+      <div class="container">
+        <div class="text-center mb-4 mb-lg-5">
+          <h1 class="fw-bold mb-2">Pertanyaan yang Sering Diajukan</h1>
+          <p class="text-secondary">
+            Temukan jawaban untuk pertanyaan umum tentang LaporPak
+          </p>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+          <div class="card card-raise mb-3">
+            <h3 class="accordion-header" id="fq1">
+              <button
+                class="accordion-button px-4 collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#fc1"
+                aria-expanded="false"
+                aria-controls="fc1"
+              >
+                <span class="fw-semibold"
+                  >Bagaimana cara melaporkan masalah infrastruktur?</span
+                >
+              </button>
+            </h3>
+            <div
+              id="fc1"
+              class="accordion-collapse collapse"
+              aria-labelledby="fq1"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body px-4 pt-0 pb-4 text-secondary">
+                Cukup daftar akun, ambil foto masalah infrastruktur, tambahkan
+                deskripsi minimal 20 karakter, tentukan lokasi dengan GPS, dan
+                kirim laporan. Anda akan mendapat nomor tiket unik untuk
+                tracking.
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-raise mb-3">
+            <h3 class="accordion-header" id="fq2">
+              <button
+                class="accordion-button px-4 collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#fc2"
+                aria-expanded="false"
+                aria-controls="fc2"
+              >
+                <span class="fw-semibold"
+                  >Berapa lama waktu respons pemerintah?</span
+                >
+              </button>
+            </h3>
+            <div
+              id="fc2"
+              class="accordion-collapse collapse"
+              aria-labelledby="fq2"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body px-4 pt-0 pb-4 text-secondary">
+                Verifikasi laporan biasanya dilakukan dalam 1-3 hari kerja.
+                Proses perbaikan tergantung tingkat prioritas dan kompleksitas
+                masalah, rata-rata 1-4 minggu untuk masalah menengah.
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-raise mb-3">
+            <h3 class="accordion-header" id="fq3">
+              <button
+                class="accordion-button px-4 collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#fc3"
+                aria-expanded="false"
+                aria-controls="fc3"
+              >
+                <span class="fw-semibold">Apakah data pribadi saya aman?</span>
+              </button>
+            </h3>
+            <div
+              id="fc3"
+              class="accordion-collapse collapse"
+              aria-labelledby="fq3"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body px-4 pt-0 pb-4 text-secondary">
+                Ya, LaporPak menggunakan enkripsi tingkat tinggi dan mematuhi
+                standar keamanan pemerintah Indonesia. Data pribadi hanya
+                digunakan untuk keperluan pelaporan dan tidak dibagikan ke pihak
+                ketiga.
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-raise mb-3">
+            <h3 class="accordion-header" id="fq4">
+              <button
+                class="accordion-button px-4 collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#fc4"
+                aria-expanded="false"
+                aria-controls="fc4"
+              >
+                <span class="fw-semibold">Bagaimana sistem poin bekerja?</span>
+              </button>
+            </h3>
+            <div
+              id="fc4"
+              class="accordion-collapse collapse"
+              aria-labelledby="fq4"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body px-4 pt-0 pb-4 text-secondary">
+                Anda mendapat 10-100 poin saat laporan diverifikasi dan 200-400
+                poin tambahan saat masalah selesai diperbaiki. Poin dapat
+                ditukar dengan reward atau digunakan untuk meningkatkan status
+                warga aktif.
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-raise">
+            <h3 class="accordion-header" id="fq5">
+              <button
+                class="accordion-button px-4 collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#fc5"
+                aria-expanded="false"
+                aria-controls="fc5"
+              >
+                <span class="fw-semibold"
+                  >Apakah ada batasan jumlah laporan per hari?</span
+                >
+              </button>
+            </h3>
+            <div
+              id="fc5"
+              class="accordion-collapse collapse"
+              aria-labelledby="fq5"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body px-4 pt-0 pb-4 text-secondary">
+                Ya, untuk mencegah spam, setiap pengguna dibatasi maksimal 5
+                laporan per hari. Ini memastikan kualitas laporan tetap tinggi
+                dan sistem tidak overload.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-4 py-md-5">
+      <div class="container" style="max-width: 1100px">
+        <div class="cta-card bg-primary text-center text-white">
+          <h2 class="display-6 fw-bold mb-2">
+            Siap Berkontribusi untuk Indonesia?
+          </h2>
+          <p class="lead mb-4 text-white">
+            Bergabunglah dengan ribuan warga Indonesia yang telah membantu
+            memperbaiki infrastruktur di lingkungan mereka
+          </p>
+          <div class="d-grid d-sm-flex gap-3 justify-content-center">
+            <a href="#" class="btn btn-light touch-target px-4">
+              Daftar Gratis Sekarang
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary text-white">
+      <div class="container py-5">
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <a
+              class="navbar-brand d-flex align-items-center py-2"
+              href="index.html"
+            >
+              <img
+                src="assets/Logo-laporpak-putih.png"
+                alt="Logo LaporPak"
+                width="120"
+              />
+            </a>
+            <p class="text-white mb-4">
+              Platform digital yang menghubungkan warga dengan pemerintah daerah
+              untuk melaporkan kerusakan jalan, jembatan, dan masalah
+              kebersihan. Bersama membangun lingkungan yang lebih baik.
+            </p>
+            <div class="d-flex gap-3">
+              <a
+                href="#"
+                class="text-white d-inline-flex align-items-center"
+                aria-label="Facebook"
+                ><i class="bi bi-facebook fs-5"></i
+              ></a>
+              <a
+                href="#"
+                class="text-white d-inline-flex align-items-center"
+                aria-label="Twitter"
+                ><i class="bi bi-twitter-x fs-5"></i
+              ></a>
+              <a
+                href="#"
+                class="text-white d-inline-flex align-items-center"
+                aria-label="Instagram"
+                ><i class="bi bi-instagram fs-5"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <h4 class="h6 fw-bold text-white mb-3">Tautan Cepat</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2">
+                <a
+                  href="index.html#home"
+                  class="text-white text-decoration-none"
+                  >Beranda</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="index.html#how-it-works"
+                  class="text-white text-decoration-none"
+                  >Cara Kerja</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="index.html#latest-reports"
+                  class="text-white text-decoration-none"
+                  >Daftar Laporan</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="index.html#faq" class="text-white text-decoration-none"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <h4 class="h6 fw-bold text-white mb-3">Kontak</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2 text-white">Email: info@laporpak.id</li>
+              <li class="mb-2 text-white">Tel: (021) 123-4567</li>
+              <li class="text-white">Alamat: Jakarta, Indonesia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-top border-white mt-4 pt-4 text-center">
+          <p class="text-white mb-0">
+            © 2025 LaporPak. Semua hak cipta dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // btn melaporkan
+        const tombolMelaporkan = document.getElementById("btn-melaporkan");
+
+        if (tombolMelaporkan) {
+          tombolMelaporkan.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("Silakan Daftar terlebih dahulu untuk membuat laporan.");
+          });
+        }
+
+        // btn lihat detail
+        const tombolDetail = document.querySelectorAll(".btn-lihat-detail");
+
+        tombolDetail.forEach(function (tombol) {
+          tombol.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert(
+              "Silakan Daftar terlebih dahulu untuk melihat detail laporan."
+            );
+          });
+        });
+
+        // btn lihat semua
+        const tombolSemua = document.getElementById("btn-lihat-semua");
+
+        if (tombolSemua) {
+          tombolSemua.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert(
+              "Silakan Daftar terlebih dahulu untuk melihat semua laporan."
+            );
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
